@@ -1,11 +1,17 @@
+# Makefile
+# last modified by: James Peterson
+# modified date: 04/29/2012
+#
+
 BASEDIR=$(CURDIR)/../
 
+# Add all source files here
 BUILD_OBJECTS = \
 	base.o \
 	led.o \
 	button.o
 
-
+#Include the base build environment variables
 include ../Makefile.incl
 
 # Tell make where the object files are for proper resolution of suffix rules

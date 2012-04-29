@@ -1,3 +1,11 @@
+# Arduino Makefile.incl
+# designed to work with Arduino 1.0 Makefile updated.
+# last modifled by: James Peterson
+# modified date: 04/29/2012
+# Included all of the default build elements for an arduino build
+#
+###############################################################
+
 INSTALL_DIR = /opt/arduino
 PORT = /dev/ttyACM0
 UPLOAD_RATE = 115200

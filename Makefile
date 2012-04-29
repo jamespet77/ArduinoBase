@@ -1,5 +1,10 @@
 # Arduino 1.0 Makefile
 # Based on Arduino 0018 Makefile
+# last updated 04/29/2012, James Peterson
+# Separated Make files into Makefile and Makefile.incl
+# Moved source and header files into src and includes dir
+#
+#
 # last updated 12/15/2011, Kerry Wong
 #
 # Arduino adaptation by mellis, eighthave, oli.keller
