@@ -8,16 +8,17 @@ public:
 	LED();
 	LED(byte id);
 	~LED();
+	void init(byte id);
 	void on();
 	void off();
 	void blink(int time);
 	void fade(int fadeAmount);
+	void setID(byte id);
+	byte getID();
 private:
 	byte ledID;
 	int brightness;
 	int fadeDirection;
-	void setID(byte id);
-	byte getID();
 };
 
 #endif

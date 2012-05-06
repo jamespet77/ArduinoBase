@@ -4,11 +4,15 @@
 
 //<<constructor>> setup the LED, make pin 13 an OUTPUT
 LED::LED(){
-	LED(D13_PIN);
+	init(D13_PIN);
 }
 
 //<<constructor>> setup the LED, make pin id an OUTPUT
 LED::LED(byte id){
+	init(id);
+}
+
+void	LED::init(byte id){
     setID(id);//make that pin an OUTPUT
 	brightness = 255;
 	fadeDirection = 1;

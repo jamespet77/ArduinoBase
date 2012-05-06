@@ -1,17 +1,13 @@
 #include <Arduino.h>
-#include "led.h"
-#include "button.h"
+#include <pins.h>
+#include <morsecode.h>
 
-LED led(13);
-BUTTON button(2);
+morsecode mc(D13_PIN);
+
 
 void setup(){
+	mc.decode("Hello World");
 }
 
 void loop() {
-	if (button.getState() == HIGH) {
-		led.on();
-	} else {
-		led.off();
-	}
 }

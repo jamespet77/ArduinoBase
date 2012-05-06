@@ -9,7 +9,8 @@ BASEDIR=$(CURDIR)/../
 BUILD_OBJECTS = \
 	base.o \
 	led.o \
-	button.o
+	button.o \
+	morsecode.o
 
 #Include the base build environment variables
 include ../Makefile.incl
