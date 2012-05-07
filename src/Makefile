@@ -5,13 +5,6 @@
 
 BASEDIR=$(CURDIR)/../
 
-# Add all source files here
-BUILD_OBJECTS = \
-	base.o \
-	led.o \
-	button.o \
-	morsecode.o
-
 #Include the base build environment variables
 include ../Makefile.incl
 

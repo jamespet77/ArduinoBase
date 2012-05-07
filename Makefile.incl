@@ -87,3 +87,12 @@ ALL_CFLAGS = $(CFLAGS) -mmcu=$(MCU)
 ALL_CXXFLAGS = $(CXXFLAGS) -mmcu=$(MCU)
 ALL_ASFLAGS = -x assembler-with-cpp $(ASFLAGS) -mmcu=$(MCU)
 ALL_LDFLAGS = $(LDFLAGS) -mmcu=$(MCU)
+
+# Add all source files here
+BUILD_OBJECTS = \
+	base.o \
+	led.o \
+	button.o \
+	morsecode.o
+
+BUILD_OBJECTS_WPATH := $(addprefix applet/,$(BUILD_OBJECTS))

@@ -92,6 +92,8 @@ DEBUG =
 
 include Makefile.incl
 
+vpath %.o applet
+
 # Default target.
 all: applet_files build sizeafter
 
@@ -159,7 +161,7 @@ extcoff: main.elf
 # Link: create ELF output file from library.
 #applet/$(TARGET).elf: $(TARGET).pde applet/core.a
 applet/main.elf: Src applet/core.a
-	$(LD) $(ALL_LDFLAGS) -o $@ applet/*.o applet/core.a
+	$(LD) $(ALL_LDFLAGS) -o $@ $(BUILD_OBJECTS_WPATH) applet/core.a
 
 applet/core.a: $(OBJ_MODULES)
 	@for i in $(OBJ_MODULES); do echo $(AR) rcs applet/core.a $$i; $(AR) rcs applet/core.a $$i; done
