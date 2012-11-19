@@ -6,8 +6,8 @@
 #
 ###############################################################
 
-INSTALL_DIR = /opt/arduino
-PORT = /dev/ttyACM0
+INSTALL_DIR = /Users/jamespet/appdev/arduino-1.0.2
+PORT = /dev/tty.usbmodemfd121
 UPLOAD_RATE = 115200
 AVRDUDE_PROGRAMMER = arduino
 MCU = atmega328p
@@ -18,7 +18,7 @@ ARDUINO = $(INSTALL_DIR)/hardware/arduino/cores/arduino
 VARIANTS = $(INSTALL_DIR)/hardware/arduino/variants/standard
 LOCAL_INCLUDES = $(BASEDIR)/includes
 ARDUINO_LIB = $(INSTALL_DIR)/libraries
-AVR_TOOLS_PATH = /usr/bin
+AVR_TOOLS_PATH = /Applications/Arduino.app/Contents/Resources/Java/hardware/tools/avr/bin
 AVRDUDE_PATH = $(INSTALL_DIR)/hardware/tools
 OBJ_DIR=$(BASEDIR)/applet
 
@@ -57,7 +57,7 @@ LDFLAGS = -O$(OPT) -lm -Wl,--gc-sections
 AVRDUDE_PORT = $(PORT)
 AVRDUDE_WRITE_FLASH = -U flash:w:applet/main.hex
 
-AVRDUDE_FLAGS = -V -F -C $(INSTALL_DIR)/hardware/tools/avrdude.conf \
+AVRDUDE_FLAGS = -V -F -C /Applications/Arduino.app/Contents/Resources/Java/hardware/tools/avr/etc/avrdude.conf \
 -p $(MCU) -P $(AVRDUDE_PORT) -c $(AVRDUDE_PROGRAMMER) \
 -b $(UPLOAD_RATE) -D
 
@@ -70,7 +70,7 @@ OBJDUMP = $(AVR_TOOLS_PATH)/avr-objdump
 AR  = $(AVR_TOOLS_PATH)/avr-ar
 SIZE = $(AVR_TOOLS_PATH)/avr-size
 NM = $(AVR_TOOLS_PATH)/avr-nm
-AVRDUDE = $(AVRDUDE_PATH)/avrdude
+AVRDUDE = $(AVR_TOOLS_PATH)/avrdude
 REMOVE = rm -f
 MV = mv -f
 

@@ -99,7 +99,7 @@ all: applet_files build sizeafter
 
 build: elf hex
 
-Src: 
+Src::
 	@echo -------------------------------------- Building Sources --------------------
 	test -d applet || mkdir applet
 	$(MAKE) -C src $(MAKE_FLAGS)
@@ -163,7 +163,7 @@ extcoff: main.elf
 applet/main.elf: Src applet/core.a
 	$(LD) $(ALL_LDFLAGS) -o $@ $(BUILD_OBJECTS_WPATH) applet/core.a
 
-applet/core.a: $(OBJ_MODULES)
+applet/core.a:: $(OBJ_MODULES)
 	@for i in $(OBJ_MODULES); do echo $(AR) rcs applet/core.a $$i; $(AR) rcs applet/core.a $$i; done
 
 
@@ -195,7 +195,7 @@ applet/core.a: $(OBJ_MODULES)
 
 
 # Target: clean project.
-clean:
+clean::
 	$(REMOVE) applet/* \
 	$(OBJ) $(LST) $(SRC:.c=.s) $(SRC:.c=.d) $(CXXSRC:.cpp=.s) $(CXXSRC:.cpp=.d)
 
