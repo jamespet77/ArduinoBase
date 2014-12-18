@@ -6,8 +6,8 @@
 #
 ###############################################################
 
-INSTALL_DIR = /Users/jamespet/appdev/arduino-1.0.2
-PORT = /dev/tty.usbmodemfd121
+INSTALL_DIR = /Applications/Arduino.app/Contents/Resources/Java
+PORT = /dev/tty.usbmodem1411 #this may be different on your machine
 UPLOAD_RATE = 115200
 AVRDUDE_PROGRAMMER = arduino
 MCU = atmega328p
