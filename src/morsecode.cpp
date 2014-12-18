@@ -1,33 +1,30 @@
-#include <morsecode.h>
+#include "morsecode.h" //include the declaration for this class
+#include "pins.h"
 
-morsecode::morsecode() {
-	morsecode(D13_PIN);
+//<<constructor>> setup the morsecode, make pin 13 an OUTPUT
+morsecode::morsecode(){
+}
+morsecode::morsecode(byte id){
+	ld.init(id);
+}
+void morsecode::blink(int t) {
+	ld.blink(t);
 }
 
-morsecode::morsecode(byte id) {
-	led.init(D13_PIN);
+void   morsecode::dot() {
+	ld.on();
+	delay(200);
+	ld.off();
+	delay(200);
 }
 
-morsecode::~morsecode() {}
-
-void	morsecode::blink(int time) {
-	led.blink(time);
+void   morsecode::dash() {
+	ld.on();
+	delay(500);
+	ld.off();
+	delay(200);
 }
-void	morsecode::dot() {
-	led.on();
-	delay(100);
-	led.off();
-	delay(300);
-}
-
-void	morsecode::dash() {
-	led.on();
-	delay(1000);
-	led.off();
-	delay(300);
-}
-
-void	morsecode::decode(const char *str) {
+void   morsecode::decode(const char *str) {
 
 	size_t i,j;
 
@@ -40,8 +37,8 @@ void	morsecode::decode(const char *str) {
 	}
 }
 
-void	morsecode::play(const char *str) {
-	
+void   morsecode::play(const char *str) {
+
 	size_t i;
 
 	for(i = 0; str[i]; i++) {
